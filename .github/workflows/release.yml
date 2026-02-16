@@ -24,7 +24,7 @@ jobs:
       comment-id: ${{ steps.create-comment.outputs.comment-id || steps.update-comment.outputs.comment-id }}
       check-id: ${{ steps.create-check.outputs.check-id }}
     name: Release
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -100,7 +100,7 @@ jobs:
       sha: ${{ steps.commit.outputs.sha }}
       check-id: ${{ steps.create-check.outputs.check-id }}
     name: Update - Release
-    if: github.repository_owner == 'npm' && needs.release.outputs.pr
+     && needs.release.outputs.pr
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -176,7 +176,7 @@ jobs:
   post-ci:
     needs: [ release, update, ci ]
     name: Post CI - Release
-    if: github.repository_owner == 'npm' && needs.release.outputs.pr && always()
+     && needs.release.outputs.pr && always()
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -206,7 +206,7 @@ jobs:
     outputs:
       comment-id: ${{ steps.create-comment.outputs.comment-id }}
     name: Post Release - Release
-    if: github.repository_owner == 'npm' && needs.release.outputs.releases
+     && needs.release.outputs.releases
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -248,7 +248,7 @@ jobs:
   post-release-integration:
     needs: [ release, release-integration, post-release ]
     name: Post Release Integration - Release
-    if: github.repository_owner == 'npm' && needs.release.outputs.releases && always()
+     && needs.release.outputs.releases && always()
     runs-on: ubuntu-latest
     defaults:
       run:

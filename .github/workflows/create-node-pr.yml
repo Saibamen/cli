@@ -22,7 +22,7 @@ permissions:
 jobs:
   create-pull-request:
     name: Create Node PR
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:

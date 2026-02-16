@@ -25,7 +25,7 @@ permissions:
 jobs:
   lint-all:
     name: Lint All
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -72,7 +72,7 @@ jobs:
 
   test-all:
     name: Test All - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
-    if: github.repository_owner == 'npm'
+
     strategy:
       fail-fast: false
       matrix:
@@ -150,12 +150,12 @@ jobs:
           check_id: ${{ steps.create-check.outputs.check-id }}
 
   smoke-tests:
-    # This cant be tested on Windows because our node_modules directory	
-    # checks in symlinks which are not supported there. This should be	
-    # fixed somehow, because this means some forms of local development	
-    # are likely broken on Windows as well.	
+    # This cant be tested on Windows because our node_modules directory
+    # checks in symlinks which are not supported there. This should be
+    # fixed somehow, because this means some forms of local development
+    # are likely broken on Windows as well.
     name: Smoke Tests - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
-    if: github.repository_owner == 'npm'
+
     strategy:
       fail-fast: false
       matrix:
@@ -211,12 +211,12 @@ jobs:
           check_id: ${{ steps.create-check.outputs.check-id }}
 
   publish-dryrun:
-    # This cant be tested on Windows because our node_modules directory	
-    # checks in symlinks which are not supported there. This should be	
-    # fixed somehow, because this means some forms of local development	
-    # are likely broken on Windows as well.	
+    # This cant be tested on Windows because our node_modules directory
+    # checks in symlinks which are not supported there. This should be
+    # fixed somehow, because this means some forms of local development
+    # are likely broken on Windows as well.
     name: Publish Dry-Run - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
-    if: github.repository_owner == 'npm'
+
     strategy:
       fail-fast: false
       matrix:

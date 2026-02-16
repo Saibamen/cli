@@ -16,7 +16,7 @@ permissions:
 jobs:
   commitlint:
     name: Lint Commits
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:

@@ -31,7 +31,7 @@ permissions:
 jobs:
   lint:
     name: Lint
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -61,7 +61,7 @@ jobs:
 
   test:
     name: Test - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
-    if: github.repository_owner == 'npm'
+
     strategy:
       fail-fast: false
       matrix:
@@ -123,7 +123,7 @@ jobs:
 
   licenses:
     name: Check Licenses
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -150,12 +150,12 @@ jobs:
         run: node . run licenses
 
   smoke-tests:
-    # This cant be tested on Windows because our node_modules directory	
-    # checks in symlinks which are not supported there. This should be	
-    # fixed somehow, because this means some forms of local development	
-    # are likely broken on Windows as well.	
+    # This cant be tested on Windows because our node_modules directory
+    # checks in symlinks which are not supported there. This should be
+    # fixed somehow, because this means some forms of local development
+    # are likely broken on Windows as well.
     name: Smoke Tests
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -199,12 +199,12 @@ jobs:
           check_id: ${{ steps.create-check.outputs.check-id }}
 
   publish-dryrun:
-    # This cant be tested on Windows because our node_modules directory	
-    # checks in symlinks which are not supported there. This should be	
-    # fixed somehow, because this means some forms of local development	
-    # are likely broken on Windows as well.	
+    # This cant be tested on Windows because our node_modules directory
+    # checks in symlinks which are not supported there. This should be
+    # fixed somehow, because this means some forms of local development
+    # are likely broken on Windows as well.
     name: Publish Dry-Run
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:

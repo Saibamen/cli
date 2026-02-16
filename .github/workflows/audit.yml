@@ -14,7 +14,7 @@ permissions:
 jobs:
   audit:
     name: Audit Dependencies
-    if: github.repository_owner == 'npm'
+
     runs-on: ubuntu-latest
     defaults:
       run:
